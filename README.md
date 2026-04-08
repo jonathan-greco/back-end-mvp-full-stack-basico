@@ -12,12 +12,12 @@ A organização do código segue o padrão **MVC modular**, separando responsabi
 
 | Diretório/Arquivo        | Responsabilidade & Libs Relacionadas |
 |--------------------------|--------------------------------------|
-| `app.py`                 | Ponto de entrada. Inicializa o Flask, configura CORS (`flask-cors`), carrega variáveis de ambiente (`python-dotenv`), registra os blueprints/rotas e monta os UIs do OpenAPI (`flask-openapi3`). |
+| `app.py`                 | Ponto de entrada. Inicializa o Flask, configura CORS (`flask-cors`), registra as rotas e monta os UIs do OpenAPI (`flask-openapi3`). |
 | `database.py`            | Configuração da camada de persistência. Gerencia a `Session` do `Flask-SQLAlchemy`, aplica contextos de aplicação e configura o bind com o SQLite. |
 | `logger.py`              | Configuração do módulo nativo `logging`. Define formatação, níveis, handlers e rotação de logs para rastreabilidade de requisições e erros. |
 | `model/`                 | Camada de domínio/ORM. `base.py` define a `DeclarativeBase` do SQLAlchemy 2.0. `musica.py`, `playlist.py` e `comentario.py` contêm as entidades, colunas, relacionamentos e constraints. |
 | `routes/`                | Camada de controle e roteamento para `playlist_route.py`, `musica_route.py` e `comentario_route.py`. Define os endpoints HTTP, injeta dependências, chama serviços/models e retorna respostas JSON padronizadas. |
-| `schemas/`               | Camada de validação e contrato. Utiliza **Pydantic** para validação de payloads e geração do contrato OpenAPI, e **Marshmallow + marshmallow-sqlalchemy** para serialização/deserialização de modelos do banco. `error.py` padroniza respostas de erro. |
+| `schemas/`               | Camada de validação e contrato. Utiliza **Pydantic** para validação e geração do contrato OpenAPI, e **Marshmallow + marshmallow-sqlalchemy** para serialização/deserialização de modelos do banco. `error.py` padroniza respostas de erro. |
 | `database/`              | Diretório que armazena o arquivo do banco `db.sqlite3`. |
 | `log/`                   | Diretório destinado aos arquivos de log gerados em runtime. |
 | `.gitignore`             | Ignora `__pycache__/`, `.venv/`, `db.sqlite3`, `log/`, `.env`, etc. |
@@ -38,6 +38,8 @@ A organização do código segue o padrão **MVC modular**, separando responsabi
 - Sqlite
 - SQLAlchemy
 - Logging 
+
+
 ## Classes / Modelos
 
 - Playlist
@@ -73,6 +75,7 @@ Este comando instala as dependências/bibliotecas, descritas no arquivo `require
 ```bash
 (env)$ pip install -r requirements.txt
 ```
+
     
 ## Execução
 
@@ -88,7 +91,7 @@ automaticamente após uma mudança no código fonte.
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
 
-Abra o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador para verificar o status da API em execução.
+Abra o [http://127.0.0.1:5000/openapi/swagger/](http://127.0.0.1:5000/openapi/swagger/) no navegador para verificar o status da API em execução.
 
 
 ## Autor
