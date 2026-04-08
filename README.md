@@ -1,7 +1,13 @@
 
 # 🎵 API de Gerenciamento de Playlists
 
-API desenvolvida em **Python** com **Flask**, utilizando **SQLAlchemy** como ORM e **SQLite** como banco de dados. 
+Uma API simples e moderna para gerenciamento de playlists musicais, desenvolvida com Python e Flask. Este projeto permite criar playlists, adicionar músicas e interagir através de comentários.
+
+O objetivo desta API é fornecer um backend funcional e escalável para aplicações que necessitam de:
+
+- **Catálogo de Playlists:** Crie e gerencie coleções de músicas personalizadas.
+- **Organização de Músicas:** Adicione metadados como título, artista e duração.
+- **Interação Social:** Permita que usuários deixem comentários e feedbacks nas playlists.
 
 O projeto segue uma arquitetura modular, com validação robusta, serialização automatizada e documentação OpenAPI interativa gerada automaticamente.
 
