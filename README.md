@@ -1,7 +1,7 @@
 
 # 🎵 API de Gerenciamento de Playlists
 
-API RESTful desenvolvida em **Python** com **Flask**, utilizando **SQLAlchemy** como ORM e **SQLite** como banco de dados. 
+API desenvolvida em **Python** com **Flask**, utilizando **SQLAlchemy** como ORM e **SQLite** como banco de dados. 
 
 O projeto segue uma arquitetura modular, com validação robusta, serialização automatizada e documentação OpenAPI interativa gerada automaticamente.
 
@@ -24,11 +24,11 @@ A organização do código segue o padrão **MVC modular**, separando responsabi
 | `requirements.txt`       | Dependências de libs do projeto. |
 
 
-## Principais Recursos
-- 📖 **Documentação OpenAPI automática** (Swagger, Redoc, RapiDoc, Scalar e Elements)
-- 🔒 **Validação e serialização** com Pydantic e Marshmallow
-- 🌐 **Suporte nativo a CORS** para integração com frontends modernos
-- 🗄️ **ORM SQLAlchemy 2.0** com mapeamento SQLAlchemy-Utils
+## Recursos
+- **Documentação OpenAPI automática** (Swagger, Redoc, RapiDoc, Scalar e Elements)
+- **Validação e serialização** com Pydantic e Marshmallow
+- **Suporte nativo a CORS** para integração com frontends modernos
+- **ORM SQLAlchemy 2.0** com mapeamento SQLAlchemy-Utils
 
 
 ## Tecnologias utilizadas
