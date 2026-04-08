@@ -18,7 +18,7 @@ A organização do código segue o padrão **MVC modular**, separando responsabi
 
 | Diretório/Arquivo        | Responsabilidade & Libs Relacionadas |
 |--------------------------|--------------------------------------|
-| `app.py`                 | Ponto de entrada. Inicializa o Flask, configura CORS (`flask-cors`), registra as rotas e monta os UIs do OpenAPI (`flask-openapi3`). |
+| `app.py`                 | Ponto de entrada. Inicializa o Flask, configura CORS (`flask-cors`), registra as rotas e monta a página de documentação do OpenAPI/Swagger (`flask-openapi3`). |
 | `database.py`            | Configuração da camada de persistência. Gerencia a `Session` do `Flask-SQLAlchemy`, aplica contextos de aplicação e configura o bind com o SQLite. |
 | `logger.py`              | Configuração do módulo nativo `logging`. Define formatação, níveis, handlers e rotação de logs para rastreabilidade de requisições e erros. |
 | `model/`                 | Camada de domínio/ORM. `base.py` define a `DeclarativeBase` do SQLAlchemy 2.0. `musica.py`, `playlist.py` e `comentario.py` contêm as entidades, colunas, relacionamentos e constraints. |
