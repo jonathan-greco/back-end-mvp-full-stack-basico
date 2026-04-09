@@ -38,7 +38,7 @@ class MusicaUpdateSchema(BaseModel):
 
 
 class MusicaListagemSchema(BaseModel):
-    playlists: List[MusicaViewSchema]
+    musicas: List[MusicaViewSchema]
 
 
 class MusicaQueryIdSchema(BaseModel):

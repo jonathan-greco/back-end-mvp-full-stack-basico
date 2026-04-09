@@ -16,7 +16,7 @@ def register_comentario_routes(app):
     
     comentario_tag = Tag(name="Comentário", description="Gerenciamento de Comentários")
 
-    @app.get('/comentarios/', tags=[comentario_tag], summary="Lista todos os comentários registradas.", responses={200: comentario_schema.ComentarioListagemSchema, 404: ErrorSchema})
+    @app.get('/comentarios', tags=[comentario_tag], summary="Lista todos os comentários registradas.", responses={200: comentario_schema.ComentarioListagemSchema, 404: ErrorSchema}, strict_slashes=False)
     def listar_comentarios():
         logger.debug("Coletando comentários...")
         
@@ -42,7 +42,7 @@ def register_comentario_routes(app):
             session.close()
 
 
-    @app.post('/comentario', tags=[comentario_tag], summary="Adiciona um novo comentário à base de dados.", responses={201: comentario_schema.ComentarioViewSchema, 409: ErrorSchema, 400: ErrorSchema})
+    @app.post('/comentario', tags=[comentario_tag], summary="Adiciona um novo comentário à base de dados.", responses={201: comentario_schema.ComentarioViewSchema, 409: ErrorSchema, 400: ErrorSchema}, strict_slashes=False)
     def adiciona_comentario(form: comentario_schema.ComentarioNovoSchema):
         comentario = Comentario(
             texto= form.texto,
@@ -86,7 +86,7 @@ def register_comentario_routes(app):
             session.close() # Garante que a conexão seja fechada
 
 
-    @app.get('/comentario', tags=[comentario_tag], summary="Recupera os dados de um comentário específico pelo ID.", responses={200: comentario_schema.ComentarioViewSchema, 404: ErrorSchema})
+    @app.get('/comentario', tags=[comentario_tag], summary="Recupera os dados de um comentário específico pelo ID.", responses={200: comentario_schema.ComentarioViewSchema, 404: ErrorSchema}, strict_slashes=False)
     def exibir_comentario(query: comentario_schema.ComentarioQueryIdSchema):
 
         comentario_id = query.id
@@ -118,7 +118,7 @@ def register_comentario_routes(app):
             session.close()
 
 
-    @app.put('/comentario', tags=[comentario_tag], summary="Atualiza os dados de um comentário existente através do ID.", responses={"200": comentario_schema.ComentarioViewSchema, "404": ErrorSchema})
+    @app.put('/comentario', tags=[comentario_tag], summary="Atualiza os dados de um comentário existente através do ID.", responses={"200": comentario_schema.ComentarioViewSchema, "404": ErrorSchema}, strict_slashes=False)
     def atualizar_comentario(query: comentario_schema.ComentarioQueryIdSchema, form: comentario_schema.ComentarioUpdateSchema):
         
         comentario_id = query.id
@@ -160,7 +160,7 @@ def register_comentario_routes(app):
             session.close()
 
 
-    @app.delete('/comentario', tags=[comentario_tag], summary="Remove um comentário da base de dados pelo ID.", responses={200: ErrorSchema, 404: ErrorSchema})
+    @app.delete('/comentario', tags=[comentario_tag], summary="Remove um comentário da base de dados pelo ID.", responses={200: ErrorSchema, 404: ErrorSchema}, strict_slashes=False)
     def remover_comentario(query: comentario_schema.ComentarioQueryIdSchema):
         
         comentario_id = query.id

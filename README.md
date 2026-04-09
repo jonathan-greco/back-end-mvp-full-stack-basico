@@ -1,7 +1,7 @@
 
 # 🎵 API de Gerenciamento de Playlists
 
-Uma API simples e moderna para gerenciamento de playlists musicais, desenvolvida com Python e Flask. Este projeto permite criar playlists, adicionar músicas e interagir através de comentários.
+Uma API simples para gerenciamento de playlists musicais, desenvolvida com Python e Flask. Este projeto permite criar playlists, adicionar músicas e interagir através de comentários.
 
 O objetivo desta API é fornecer um backend funcional e escalável para aplicações que necessitam de:
 
@@ -97,7 +97,9 @@ automaticamente após uma mudança no código fonte.
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
 
-Abra o [http://127.0.0.1:5000/openapi/swagger/](http://127.0.0.1:5000/openapi/swagger/) no navegador para verificar o status da API em execução.
+## Documentação / Swagger
+
+Abra o [http://127.0.0.1:5000/openapi/swagger](http://127.0.0.1:5000/openapi/swagger) no navegador para visualizar os endpoints da aplicação.
 
 
 ## Autor

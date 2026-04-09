@@ -20,6 +20,7 @@ def create_app():
     init_db()
 
     # Configurações gerais
+    # Habilita CORS para todas as rotas (desenvolvimento)
     CORS(app)
 
     # Registra as rotas passando o app como argumento
@@ -32,4 +33,4 @@ def create_app():
 
 if __name__ == '__main__':  
     app = create_app()  
-    app.run(debug=True)
+    app.run(debug=False)

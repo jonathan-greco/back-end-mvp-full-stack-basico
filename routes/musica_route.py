@@ -16,7 +16,7 @@ def register_musica_routes(app):
     
     musica_tag = Tag(name="Música", description="Gerenciamento de Músicas")
 
-    @app.get('/musicas/', tags=[musica_tag], summary="Lista todas as músicas registradas.", responses={200: musica_schema.MusicaListagemSchema, 404: ErrorSchema})
+    @app.get('/musicas', tags=[musica_tag], summary="Lista todas as músicas registradas.", responses={200: musica_schema.MusicaListagemSchema, 404: ErrorSchema}, strict_slashes=False)
     def listar_musicas():
         """Faz a busca por todas as musicas cadastradas.
         Retorna uma representação da listagem de musicas.
@@ -45,7 +45,7 @@ def register_musica_routes(app):
             session.close()
 
 
-    @app.post('/musica', tags=[musica_tag], summary="Adiciona uma nova música à base de dados.", responses={201: musica_schema.MusicaViewSchema, 409: ErrorSchema, 400: ErrorSchema})
+    @app.post('/musica', tags=[musica_tag], summary="Adiciona uma nova música à base de dados.", responses={201: musica_schema.MusicaViewSchema, 409: ErrorSchema, 400: ErrorSchema}, strict_slashes=False)
     def adiciona_musica(form: musica_schema.MusicaSchema):
         musica = Musica(
             nome_musica=form.nome_musica,
@@ -92,7 +92,7 @@ def register_musica_routes(app):
             session.close() # Garante que a conexão seja fechada
 
 
-    @app.get('/musica', tags=[musica_tag], summary="Recupera os dados de uma música específica pelo ID.", responses={200: musica_schema.MusicaViewSchema, 404: ErrorSchema})
+    @app.get('/musica', tags=[musica_tag], summary="Recupera os dados de uma música específica pelo ID.", responses={200: musica_schema.MusicaViewSchema, 404: ErrorSchema}, strict_slashes=False)
     def exibir_musica(query: musica_schema.MusicaQueryIdSchema):
         musica_id = query.id
 
@@ -123,7 +123,7 @@ def register_musica_routes(app):
             session.close()
 
 
-    @app.put('/musica', tags=[musica_tag], summary="Atualiza os dados de uma música existente através do ID.", responses={"200": musica_schema.MusicaViewSchema, "404": ErrorSchema})
+    @app.put('/musica', tags=[musica_tag], summary="Atualiza os dados de uma música existente através do ID.", responses={"200": musica_schema.MusicaViewSchema, "404": ErrorSchema}, strict_slashes=False)
     def atualizar_musica(query: musica_schema.MusicaQueryIdSchema, form: musica_schema.MusicaUpdateSchema):
         musica_id = query.id
 
@@ -176,7 +176,7 @@ def register_musica_routes(app):
             session.close()
     
 
-    @app.delete('/musica', tags=[musica_tag], summary="Remove uma música da base de dados pelo ID.", responses={200: ErrorSchema, 404: ErrorSchema})
+    @app.delete('/musica', tags=[musica_tag], summary="Remove uma música da base de dados pelo ID.", responses={200: ErrorSchema, 404: ErrorSchema}, strict_slashes=False)
     def remover_musica(query: musica_schema.MusicaQueryIdSchema):
         musica_id = query.id
 

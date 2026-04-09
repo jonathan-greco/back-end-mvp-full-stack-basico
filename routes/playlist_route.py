@@ -16,7 +16,7 @@ def register_playlist_routes(app):
     
     playlist_tag = Tag(name="Playlist", description="Gerenciamento de playlists")
 
-    @app.get('/playlists/', tags=[playlist_tag], summary="Lista todas as playlists registradas.", responses={200: playlist_schema.ListagemPlaylistsSchema, 404: ErrorSchema})
+    @app.get('/playlists', tags=[playlist_tag], summary="Lista todas as playlists registradas.", responses={200: playlist_schema.ListagemPlaylistsSchema, 404: ErrorSchema}, strict_slashes=False)
     def listar_playlists():
         """Faz a busca por todas as Playlists cadastradas.
         Retorna uma representação da listagem de playlists.
@@ -45,7 +45,7 @@ def register_playlist_routes(app):
             session.close()
 
 
-    @app.post('/playlist', tags=[playlist_tag], summary="Adiciona uma nova playlist à base de dados.", responses={201: playlist_schema.PlaylistViewSchema, 409: ErrorSchema, 400: ErrorSchema})
+    @app.post('/playlist', tags=[playlist_tag], summary="Adiciona uma nova playlist à base de dados.", responses={201: playlist_schema.PlaylistViewSchema, 409: ErrorSchema, 400: ErrorSchema}, strict_slashes=False)
     def adiciona_playlist(form: playlist_schema.PlaylistSchema):
 
         playlist = Playlist(
@@ -80,7 +80,7 @@ def register_playlist_routes(app):
             session.close() # Garante que a conexão seja fechada
 
 
-    @app.get('/playlist', tags=[playlist_tag], summary="Recupera os dados de uma playlist específica pelo ID.", responses={200: playlist_schema.PlaylistViewSchema, 404: ErrorSchema})
+    @app.get('/playlist', tags=[playlist_tag], summary="Recupera os dados de uma playlist específica pelo ID.", responses={200: playlist_schema.PlaylistViewSchema, 404: ErrorSchema}, strict_slashes=False)
     def exibir_playlist(query: playlist_schema.PlaylistQueryIdSchema):
         playlist_id = query.id
 
@@ -111,7 +111,7 @@ def register_playlist_routes(app):
             session.close()
 
 
-    @app.put('/playlist', tags=[playlist_tag], summary="Atualiza os dados de uma playlist existente através da ID.", responses={"200": playlist_schema.PlaylistViewSchema, "404": ErrorSchema})
+    @app.put('/playlist', tags=[playlist_tag], summary="Atualiza os dados de uma playlist existente através da ID.", responses={"200": playlist_schema.PlaylistViewSchema, "404": ErrorSchema}, strict_slashes=False)
     def atualizar_playlist(query: playlist_schema.PlaylistQueryIdSchema, form: playlist_schema.PlaylistUpdateSchema):
         playlist_id = query.id
 
@@ -151,7 +151,7 @@ def register_playlist_routes(app):
             session.close()
 
 
-    @app.delete('/playlist', tags=[playlist_tag], summary="Remove uma playlist da base de dados pelo ID.", responses={200: ErrorSchema, 404: ErrorSchema})
+    @app.delete('/playlist', tags=[playlist_tag], summary="Remove uma playlist da base de dados pelo ID.", responses={200: ErrorSchema, 404: ErrorSchema}, strict_slashes=False)
     def remover_playlist(query: playlist_schema.PlaylistQueryIdSchema):
         """
         Arguments: id: Annotated[int, Path(description="ID único do usuário", example=1)]

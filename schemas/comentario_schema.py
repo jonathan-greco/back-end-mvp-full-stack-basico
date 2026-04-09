@@ -31,7 +31,7 @@ class ComentarioUpdateSchema(BaseModel):
 
 
 class ComentarioListagemSchema(BaseModel):
-    playlists: List[ComentarioViewSchema]
+    comentarios: List[ComentarioViewSchema]
 
 
 class ComentarioQueryIdSchema(BaseModel):
