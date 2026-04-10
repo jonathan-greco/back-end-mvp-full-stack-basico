@@ -77,7 +77,7 @@ Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal
 Este comando instala as dependências/bibliotecas, descritas no arquivo `requirements.txt`.
 
 ```bash
-(venv)$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
     
@@ -85,14 +85,14 @@ Este comando instala as dependências/bibliotecas, descritas no arquivo `require
 
 Depois, com o ambiente virtual (venv) iniciado, execute o comando abaixo:
 ```bash
-(venv)$ flask run --host 0.0.0.0 --port 5000
+flask run --host 0.0.0.0 --port 5000
 ```
 
 Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reload, que reiniciará o servidor
 automaticamente após uma mudança no código fonte. 
 
 ```bash
-(venv)$ flask run --host 0.0.0.0 --port 5000 --reload
+flask run --host 0.0.0.0 --port 5000 --reload
 ```
 
 ## Documentação / Swagger
