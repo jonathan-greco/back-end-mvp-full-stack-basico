@@ -8,9 +8,9 @@ from routes.comentario_route import register_comentario_routes
 
 # Informações que aparecerão no Swagger
 info = {
-    "title": "Playlist API de Músicas",
+    "title": "API Gerenciador de Playlists",
     "version": "1.0.0",
-    "description": "Documentação da API do projeto Flask"
+    "description": "Documentação da API do projeto de gerenciamento de playlists em Python com Flask."
 }
 
 def create_app():
