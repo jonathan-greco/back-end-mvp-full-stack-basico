@@ -1,5 +1,5 @@
 
-# 🎵 API de Gerenciador de Playlists
+# 🎵 API Gerenciador de Playlists
 
 Uma API simples para gerenciamento de playlists musicais, desenvolvida com Python e Flask. Este projeto permite criar playlists, adicionar músicas e interagir através de comentários.
 
