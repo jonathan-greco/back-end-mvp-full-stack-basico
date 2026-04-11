@@ -25,7 +25,7 @@ def register_comentario_routes(app):
             comentarios = session.query(Comentario).all()
 
             if not comentarios:
-                logger.info("Nenhuma comentário encontrado.")
+                logger.info("Nenhum comentário encontrado.")
                 # Mantém a consistência da estrutura de retorno mesmo se vazio
                 return {"comentarios": []}, 200
             else:
@@ -77,7 +77,7 @@ def register_comentario_routes(app):
 
         except Exception as e:
             session.rollback()
-            error_msg = "Não foi possível salvar a nova comentario."
+            error_msg = "Não foi possível salvar  novo comentario."
             # exc_info=True registra o stack trace no log para debug
             logger.error(f"Erro inesperado ao adicionar comentário '{comentario.texto}': {error_msg}")
             return jsonify({"mensagem": error_msg}), 400
@@ -96,7 +96,7 @@ def register_comentario_routes(app):
             logger.warning(error_msg)
             return jsonify({"mensagem": error_msg}), 404
 
-        """Exibir uma comentario específica pelo ID."""
+        """Exibir um comentario específica pelo ID."""
         logger.debug(f"Buscando comentario ID: {comentario_id}")
         session = Session()
         try:
@@ -128,7 +128,7 @@ def register_comentario_routes(app):
             logger.warning(error_msg)
             return jsonify({"mensagem": error_msg}), 404
 
-        """Atualiza os dados de uma comentário existente."""
+        """Atualiza os dados de um comentário existente."""
         logger.debug(f"Tentando atualizar comentário ID: {comentario_id}")
         session = Session()
         try:
@@ -170,7 +170,7 @@ def register_comentario_routes(app):
             logger.warning(error_msg)
             return jsonify({"mensagem": error_msg}), 404
 
-        """Remove uma comentário da base de dados pelo ID."""
+        """Remove um comentário da base de dados pelo ID."""
         logger.debug(f"Tentando remover comentário ID: {comentario_id}")
         session = Session()
         try:
