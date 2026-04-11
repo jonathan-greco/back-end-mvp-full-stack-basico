@@ -1,15 +1,15 @@
 
 # 🎵 API Gerenciador de Playlists
 
-Uma API simples para gerenciamento de playlists musicais, desenvolvida com Python e Flask. Este projeto permite criar playlists, adicionar músicas e interagir através de comentários.
+Uma API simples para gerenciamento de playlists musicais, desenvolvida com Python e Flask. Este projeto permite criar playlists, adicionar músicas e adicionar comentários.
 
 O objetivo desta API é fornecer um backend funcional e escalável para aplicações que necessitam de:
 
-- **Catálogo de Playlists:** Crie e gerencie coleções de músicas personalizadas.
-- **Organização de Músicas:** Adicione metadados como título, artista e duração.
-- **Interação Social:** Permita que usuários deixem comentários e feedbacks nas playlists.
+- **Catálogo de Playlists:** Cria e gerencia coleções de músicas personalizadas.
+- **Músicas:** Cria e gerencia músicas vinculadas a playlists com informações de título, artista e duração.
+- **Comentários:** Permite que o usuário deixe comentários nas playlists.
 
-O projeto segue uma arquitetura modular, com validação robusta, serialização automatizada e documentação OpenAPI interativa gerada automaticamente.
+O projeto segue uma arquitetura modular, com validação, serialização e documentação OpenAPI interativa gerada automaticamente.
 
 
 ## Arquitetura de Pastas
@@ -22,7 +22,7 @@ A organização do código segue o padrão **MVC modular**, separando responsabi
 | `database.py`            | Configuração da camada de persistência. Gerencia a `Session` do `Flask-SQLAlchemy`, aplica contextos de aplicação e configura o bind com o SQLite. |
 | `logger.py`              | Configuração do módulo nativo `logging`. Define formatação, níveis, handlers e rotação de logs para rastreabilidade de requisições e erros. |
 | `model/`                 | Camada de domínio/ORM. `base.py` define a `DeclarativeBase` do SQLAlchemy 2.0. `musica.py`, `playlist.py` e `comentario.py` contêm as entidades, colunas, relacionamentos e constraints. |
-| `routes/`                | Camada de controle e roteamento para `playlist_route.py`, `musica_route.py` e `comentario_route.py`. Define os endpoints HTTP, injeta dependências, chama serviços/models e retorna respostas JSON padronizadas. |
+| `routes/`                | Camada de controle e roteamento para `playlist_route.py`, `musica_route.py` e `comentario_route.py`. Define os endpoints HTTP, injeta dependências, chama serviços/models e retorna respostas JSON. |
 | `schemas/`               | Camada de validação e contrato. Utiliza **Pydantic** para validação e geração do contrato OpenAPI, e **Marshmallow + marshmallow-sqlalchemy** para serialização/deserialização de modelos do banco. `error.py` padroniza respostas de erro. |
 | `database/`              | Diretório que armazena o arquivo do banco `db.sqlite3`. |
 | `log/`                   | Diretório destinado aos arquivos de log gerados em runtime. |
@@ -31,7 +31,7 @@ A organização do código segue o padrão **MVC modular**, separando responsabi
 
 
 ## Recursos
-- **Documentação OpenAPI automática** (Swagger, Redoc, RapiDoc, Scalar e Elements)
+- **Documentação OpenAPI automática** Swagger
 - **Validação e serialização** com Pydantic e Marshmallow
 - **Suporte nativo a CORS** para integração com frontends modernos
 - **ORM SQLAlchemy 2.0** com mapeamento SQLAlchemy-Utils
